@@ -1,0 +1,17 @@
+Para executar o projeto precisa rodar o banco de dados sql server no docker
+
+Siga os seguintes passos:
+
+
+01 - baixar a imagem do banco de dados
+	docker pull mcr.microsoft.com/mssql/server
+
+02 - criar a docker com usuário e senha
+	docker run --name BP-Hakaton -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=$3nh@!__' -e 'MSSQL_PID=Express'  -p 1433:1433 -d mcr.microsoft.com/mssql/server
+
+03 - Acesso SSMS
+	usuário: sa
+	senha: $3nh@!__
+
+04 - criar banco e tabelas
+	executar o script database.sql dentro da pasta DB

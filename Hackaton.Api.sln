@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Api", "Hackaton.Api\Hackaton.Api.csproj", "{A2625033-2184-4AB7-839A-B3E3E15A501C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Api.Test", "Hackaton.Api.Test\Hackaton.Api.Test.csproj", "{430591B8-65B3-464B-8162-E462EACDB7C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dados", "Dados", "{820DB348-709A-4675-9A08-6D500249B173}"
+	ProjectSection(SolutionItems) = preProject
+		init-db\Database.sql = init-db\Database.sql
+		init-db\entrypoint.sh = init-db\entrypoint.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{3711E176-E9EE-4A11-A82F-7B937927C114}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hackaton.Models", "Hackaton.Models\Hackaton.Models.csproj", "{6C16E4FB-CB33-4402-BF35-02153C2729D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2625033-2184-4AB7-839A-B3E3E15A501C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2625033-2184-4AB7-839A-B3E3E15A501C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2625033-2184-4AB7-839A-B3E3E15A501C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2625033-2184-4AB7-839A-B3E3E15A501C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{430591B8-65B3-464B-8162-E462EACDB7C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{430591B8-65B3-464B-8162-E462EACDB7C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{430591B8-65B3-464B-8162-E462EACDB7C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{430591B8-65B3-464B-8162-E462EACDB7C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C16E4FB-CB33-4402-BF35-02153C2729D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C16E4FB-CB33-4402-BF35-02153C2729D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C16E4FB-CB33-4402-BF35-02153C2729D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C16E4FB-CB33-4402-BF35-02153C2729D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2417BF8-E952-477A-AFE6-1DC9ED6290C5}
+	EndGlobalSection
+EndGlobal
