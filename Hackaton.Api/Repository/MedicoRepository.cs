@@ -65,7 +65,6 @@ namespace Hackaton.Api.Repository
 
                 throw e;
             }
-            
         }
 
         public async Task<Medico?> GetByIdAsync(int Id, CancellationToken cancellationToken = default)

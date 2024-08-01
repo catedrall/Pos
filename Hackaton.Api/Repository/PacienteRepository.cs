@@ -34,5 +34,14 @@ namespace Hackaton.Api.Repository
 
             return await _context.Paciente.ToListAsync();
         }
+
+        public async Task<IEnumerable<Paciente>> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
+        {
+            var list = new List<Paciente>();
+            if (email is not null)
+                list = await _context.Paciente.Where(w => w.Email == email).ToListAsync();
+
+            return list;
+        }
     }
 }

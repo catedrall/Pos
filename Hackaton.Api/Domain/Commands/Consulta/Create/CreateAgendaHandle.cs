@@ -45,22 +45,31 @@ namespace Hackaton.Api.Domain.Commands.Consulta.Create
 
         private async Task EnviaEmai(int idPaciente, DateTime dataConsulta)
         {
-            string url = _configuration.GetSection("Aviso:EndPoint").Value;
-            var result = await _pacienteRepository.GetByIdAsync(idPaciente);
-            var paciente = result.FirstOrDefault();
-
-            Aviso aviso = new Aviso
+            try
             {
-                Data = dataConsulta,
-                Email = paciente.Email,
-                Nome = paciente.Nome,
-                Tipo = 1
-            };
+                string url = _configuration.GetSection("Aviso:EndPoint").Value;
+                var result = await _pacienteRepository.GetByIdAsync(idPaciente);
+                var paciente = result.FirstOrDefault();
 
-            var jsonContent = JsonConvert.SerializeObject(aviso);
-            var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-            contentString.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            await _httpClient.PostAsync(url, contentString);
+                Aviso aviso = new Aviso
+                {
+                    Data = dataConsulta,
+                    Email = paciente.Email,
+                    Nome = paciente.Nome,
+                    Tipo = 1
+                };
+
+                var jsonContent = JsonConvert.SerializeObject(aviso);
+                var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                contentString.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                await _httpClient.PostAsync(url, contentString);
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
         }
+            
     }
 }

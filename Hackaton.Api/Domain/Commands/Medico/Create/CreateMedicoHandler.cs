@@ -46,6 +46,7 @@ namespace Hackaton.Api.Domain.Commands.Medico.Create
             await _loginRepository.SalvarAsync(cancellationToken);
 
             return true;
+
         }
     }
 }

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: Hackaton-Banco
+    environment:
+      SA_PASSWORD: $3nh@!__
+      ACCEPT_EULA: 'Y'
+      MSSQL_PID: Express
+    networks:
+      - rede_api_banco
+    ports:
+      - "1433:1433"
+
+  hackaton-api:
+    image: hackaton-back-api
+    container_name: hackaton-api
+    build:
+      context: .
+    depends_on:
+      - sqlserver
+    environment:
+      ConnectionStrings__HakatonApi: "Server=sqlserver;Initial Catalog=Consultorio;User id=sa;Password=$3nh@!__;TrustServerCertificate=True;"
+    networks:
+      - rede_api_banco
+    ports:
+      - "8088:80"
+
+networks:
+  rede_api_banco:
+    driver: bridge

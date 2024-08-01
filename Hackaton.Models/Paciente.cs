@@ -20,6 +20,8 @@ namespace Hackaton.Models
         public bool Ativo { get; set; }
         //public virtual IEnumerable<Consulta> Agendas { get; set; } = new List<Consulta>();
 
+        public Paciente() { }
+
         public Paciente(string nome, string email, DateTime dataNascimento)
         {
             this.Nome = nome;

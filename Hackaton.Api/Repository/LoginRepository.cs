@@ -22,12 +22,12 @@ namespace Hackaton.Api.Repository
 
         public async Task<Login?> GetAsync(int id, CancellationToken cancellation)
         {
-            return _context.Login.FirstOrDefault(w => w.Id == id);
+            return _context.Login.AsNoTracking().FirstOrDefault(w => w.Id == id);
         }
 
         public async Task<Login?> LoginAsync(string email, string senha, CancellationToken cancellationToken)
         {
-            return _context.Login.FirstOrDefault(w => w.Email.Equals(email) && w.Senha.Equals(senha));
+            return _context.Login.AsNoTracking().FirstOrDefault(w => w.Email.Equals(email) && w.Senha.Equals(senha));
         }
 
         public async Task SalvarAsync(CancellationToken cancellationToken)

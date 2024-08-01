@@ -17,14 +17,23 @@ namespace Hackaton.Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
+
             foreach (var property in modelBuilder.Model.GetEntityTypes()
                 .SelectMany(e => e.GetProperties()
                     .Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
+            modelBuilder.Entity<Consulta>()
+                .HasOne(a => a.Medico);
+
+            modelBuilder.Entity<Consulta>()
+                .HasOne(a => a.Paciente);
+
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(DbContextClass).Assembly);
 
-            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.Cascade;
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes()
+                .SelectMany(e => e.GetForeignKeys()))
+                relationship.DeleteBehavior = DeleteBehavior.Cascade;
 
             base.OnModelCreating(modelBuilder);
         }
